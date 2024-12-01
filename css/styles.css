@@ -1,0 +1,320 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Default (Light Mode) */
+body {
+  background: #ffffff;
+  color: #454545;
+  transition: background 0.3s ease, color 0.3s ease;
+  /* Smooth transitions */
+}
+
+/* Dark Mode */
+body.dark-mode {
+  background: #121212;
+  color: #dddddd;
+}
+
+/* Styling Specific Elements */
+.sidebar {
+  background: #111111;
+  /* Sidebar for Light Mode */
+}
+
+body.dark-mode .sidebar {
+  background: #1f1f1f;
+  /* Sidebar for Dark Mode */
+}
+
+/* Toggle Button */
+#dark-mode-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #f4f4f4;
+  color: #444;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+body.dark-mode #dark-mode-toggle {
+  background: #333333;
+  color: #ffffff;
+}
+
+#dark-mode-toggle:hover {
+  opacity: 0.8;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+.sidebar {
+  position: fixed;
+  height: 100%;
+  width: 250px;
+  background: #111;
+  color: white;
+  padding: 20px;
+  box-sizing: border-box;
+  transition: transform 0.3s ease;
+  /* Smooth slide effect */
+}
+
+.sidebar.collapsed {
+  transform: translateX(-250px);
+  /* Slide sidebar out of view */
+}
+
+.sidebar h1 {
+  font-size: 1.5em;
+  margin: 0 0 20px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  margin: 10px 0;
+}
+
+.sidebar a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.sidebar a:hover {
+  text-decoration: underline;
+}
+
+.toggle-btn {
+  position: fixed;
+  top: 50%;
+  /* Center vertically */
+  left: 255px;
+  /* Align with sidebar edge */
+  transform: translateY(-50%);
+  /* Center precisely */
+  z-index: 1000;
+  background: none;
+  /* Remove background */
+  color: #333;
+  border: none;
+  /* No border */
+  font-size: 24px;
+  /* Slightly larger font for better visibility */
+  cursor: pointer;
+  padding: 0;
+  /* No padding for minimalism */
+  transition: left 0.3s ease, transform 0.2s ease;
+}
+
+.sidebar.collapsed~.toggle-btn {
+  left: 10px;
+  /* Align closer to content when collapsed */
+}
+
+.toggle-btn:hover {
+  color: #777;
+  /* Subtle color change on hover */
+}
+
+/* Content */
+.content {
+  margin-left: 250px;
+  padding: 10%;
+  padding-top: 3%;
+  box-sizing: border-box;
+  transition: margin-left 0.3s ease;
+  text-align: justify;
+  hyphens: auto;
+  /* Allows browser to hyphenate words where needed */
+  /* Smooth content adjustment */
+}
+
+.content h1 {
+  text-align: center;
+  font-size: 2em;
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+.content h2,
+.content h3,
+.content h4,
+.content h5,
+.content h6 {
+  margin-top: 15px;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+/* Paragraphs */
+.content p {
+  margin-bottom: 15px;
+}
+
+/* Links */
+.content a {
+  color: #0077AA;
+  text-decoration: none;
+}
+
+.content a:hover {
+  text-decoration: underline;
+}
+
+/* Code Blocks */
+.content pre {
+  background: #f4f4f4;
+  padding: 15px;
+  overflow-x: auto;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+body.dark-mode .content pre {
+  background: #2b2b2b;
+  /* Darker background for dark mode */
+  color: #eaeaea;
+  /* Lighter text color */
+}
+
+.content pre code {
+  font-size: 14px;
+}
+
+.content blockquote {
+  text-align: left;
+  border-left: 5px solid #ddd;
+  padding-left: 15px;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  margin-left: 0;
+  margin-right: 0;
+  color: #555;
+  font-style: italic;
+  background-color: #f9f9f9;
+  /* Optional for a subtle background */
+}
+
+body.dark-mode .content blockquote {
+  border-left: 5px solid #555;
+  /* Darker border for dark mode */
+  color: #bbbbbb;
+  /* Lighter text color */
+  background-color: #1f1f1f;
+  /* Darker background for dark mode */
+}
+
+/* Lists */
+.content ul {
+  list-style-type: disc;
+  margin-left: 20px;
+}
+
+.content ol {
+  list-style-type: decimal;
+  margin-left: 20px;
+}
+
+/* Tables */
+.content table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 15px;
+  background-color: #ffffff;
+  /* Light mode */
+}
+
+.content table th,
+.content table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.content table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+.sidebar.collapsed~.content {
+  margin-left: 0;
+}
+
+body.dark-mode .content table {
+  background-color: #1f1f1f;
+  /* Darker table background for dark mode */
+  border-color: #444;
+  /* Darker borders */
+}
+
+body.dark-mode .content table th {
+  background-color: #333;
+  /* Darker header background */
+  color: #dddddd;
+  /* Lighter header text */
+}
+
+body.dark-mode .content table td {
+  color: #cccccc;
+  /* Lighter cell text */
+}
+
+
+/* Wrapper for code block and button */
+.code-wrapper {
+  position: relative;
+  margin-bottom: 20px;
+  /* Space between code blocks */
+}
+
+.code-wrapper pre {
+  margin: 0;
+  /* Remove default margin */
+  border-radius: 5px;
+  position: relative;
+}
+
+/* Copy Button */
+.copy-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: gray;
+  color: white;
+  border: none;
+  font-size: 12px;
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 3px;
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+}
+
+.copy-btn:hover {
+  opacity: 1;
+  background: #0056b3;
+  /* Darker blue on hover */
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .content {
+    margin-left: 0;
+    /* No margin shift on mobile */
+  }
+}
